@@ -4,12 +4,8 @@ body {
 }
 
 .navbar {
-    background-color: #154734 !important; /* UTD Forest Green Signature Color */
-    border-bottom: 4px solid #e87722;   /* UTD Eco Orange Secondary Color */
-}
-
-.card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: #154734 !important; /* UTD Forest Green */
+    border-bottom: 4px solid #e87722;   /* UTD Eco Orange */
 }
 
 .semester-card {

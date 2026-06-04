@@ -9,41 +9,59 @@
 </head>
 <body class="bg-light">
 
-    <nav class="navbar navbar-dark bg-dark mb-4 shadow-sm">
-        <div class="container">
-            <span class="navbar-brand mb-0 h1">☄️ UTD Degree Path Engine</span>
+    <div id="auth-gate" class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="card p-5 text-center shadow-lg border-0 rounded-3" style="max-width: 450px; width: 100%;">
+            <h2 class="fw-bold mb-3 text-success">☄️ UTD Course Planner</h2>
+            <p class="text-muted mb-4">Please sign in with your Google account to manage your graduation path.</p>
+            <button id="loginBtn" class="btn btn-outline-dark btn-lg w-100 d-flex align-items-center justify-content-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
+                    <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+                </svg>
+                Sign in with Google
+            </button>
         </div>
-    </nav>
+    </div>
 
-    <div class="container">
-        <div class="row g-4">
-            <div class="col-lg-4">
-                <div class="card shadow-sm border-0 rounded-3">
-                    <div class="card-body p-4">
-                        <h4 class="card-title mb-3 fw-bold text-dark">Parameters</h4>
-                        <form id="plannerForm">
-                            <div class="mb-3">
-                                <label for="completedInput" class="form-label fw-semibold text-secondary">Completed Courses</label>
-                                <input type="text" class="form-control form-control-lg" id="completedInput" placeholder="e.g., CS1436, CS2305">
-                                <div class="form-text text-muted">Separate multiple classes using commas.</div>
-                            </div>
-                            <div class="mb-4">
-                                <label for="creditInput" class="form-label fw-semibold text-secondary">Max Credits / Semester</label>
-                                <input type="number" class="form-control form-control-lg" id="creditInput" value="15" min="3" max="19">
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold shadow-sm">Generate Roadmap</button>
-                        </form>
-                    </div>
+    <div id="app-container" class="d-none">
+        <nav class="navbar navbar-dark bg-dark mb-4 shadow-sm">
+            <div class="container d-flex justify-content-between align-items-center">
+                <span class="navbar-brand mb-0 h1">☄️ UTD Degree Path Engine</span>
+                <div class="d-flex align-items-center gap-3">
+                    <span id="user-display" class="text-white small fw-bold"></span>
+                    <button id="logoutBtn" class="btn btn-sm btn-outline-light">Logout</button>
                 </div>
             </div>
+        </nav>
 
-            <div class="col-lg-8">
-                <div class="card shadow-sm border-0 rounded-3">
-                    <div class="card-body p-4">
-                        <h4 class="card-title mb-4 fw-bold text-dark">Generated Graduation Plan</h4>
-                        <div id="outputContainer">
-                            <div class="text-center py-5 text-muted">
-                                <p class="lead mb-0">Set your variables and run the generator to trace optimal course flow.</p>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="card shadow-sm border-0 rounded-3">
+                        <div class="card-body p-4">
+                            <h4 class="card-title mb-3 fw-bold text-dark">Parameters</h4>
+                            <form id="plannerForm">
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold text-secondary">Completed Courses</label>
+                                    <input type="text" class="form-control form-control-lg" id="completedInput" placeholder="e.g., CS1436, CS2305">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label fw-semibold text-secondary">Max Credits / Semester</label>
+                                    <input type="number" class="form-control form-control-lg" id="creditInput" value="15" min="3" max="19">
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold shadow-sm">Generate Roadmap</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="card shadow-sm border-0 rounded-3">
+                        <div class="card-body p-4">
+                            <h4 class="card-title mb-4 fw-bold text-dark">Generated Graduation Plan</h4>
+                            <div id="outputContainer">
+                                <div class="text-center py-5 text-muted">
+                                    <p class="lead mb-0">Set your variables and run the generator to trace optimal course flow.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -52,6 +70,45 @@
         </div>
     </div>
 
+    <script type="module">
+       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+       import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics.js";
+       import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "{{ firebase_config.apiKey }}",
+            authDomain: "{{ firebase_config.authDomain }}",
+            projectId: "{{ firebase_config.projectId }}",
+            storageBucket: "{{ firebase_config.storageBucket }}",
+            messagingSenderId: "{{ firebase_config.messagingSenderId }}",
+            appId: "{{ firebase_config.appId }}",
+            measurementId: "{{ firebase_config.measurementId }}"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const provider = new GoogleAuthProvider();
+
+        window.auth = auth;
+        window.signInWithGoogle = () => signInWithPopup(auth, provider);
+        window.logoutUser = () => signOut(auth);
+
+        const authGate = document.getElementById('auth-gate');
+        const appContainer = document.getElementById('app-container');
+        const userDisplay = document.getElementById('user-display');
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                authGate.classList.add('d-none');
+                appContainer.classList.remove('d-none');
+                userDisplay.textContent = `Hello, ${user.displayName}`;
+            } else {
+                authGate.classList.remove('d-none');
+                appContainer.classList.add('d-none');
+                userDisplay.textContent = '';
+            }
+        });
+    </script>
     <script src="/static/app.js"></script>
 </body>
 </html>
