@@ -41,14 +41,27 @@
                             <h4 class="card-title mb-3 fw-bold text-dark">Parameters</h4>
                             <form id="plannerForm">
                                 <div class="mb-3">
-                                    <label class="form-label fw-semibold text-secondary">Completed Courses</label>
-                                    <input type="text" class="form-control form-control-lg" id="completedInput" placeholder="e.g., CS1436, CS2305">
+                                <label class="form-label fw-semibold text-secondary">Course Map</label>
+                                <select id="mapSelect" class="form-select form-select-lg">
+                                    {% for key, map in maps.items() %}
+                                    <option value="{{ key }}">{{ map.label }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold text-secondary">Completed Courses</label>
+                                <input type="text" class="form-control form-control-lg" id="completedInput" placeholder="e.g., CS1436, CS2305">
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold text-secondary">Max Credits / Semester</label>
+                                <input type="number" class="form-control form-control-lg" id="creditInput" value="15" min="3" max="19">
+                            </div>
+                            <div class="mb-4">
+                                <div class="alert alert-info small mb-0">
+                                    All required UTD courses must be completed with a grade of C or better. Use <strong>T</strong> for transfer/AP credit.
                                 </div>
-                                <div class="mb-4">
-                                    <label class="form-label fw-semibold text-secondary">Max Credits / Semester</label>
-                                    <input type="number" class="form-control form-control-lg" id="creditInput" value="15" min="3" max="19">
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold shadow-sm">Generate Roadmap</button>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold shadow-sm">Generate Roadmap</button>
                             </form>
                         </div>
                     </div>
@@ -65,6 +78,19 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card shadow-sm border-0 rounded-3 mt-4">
+                        <div class="card-body p-4">
+                            <h4 class="card-title mb-4 fw-bold text-dark">Course Map Preview</h4>
+                            <div id="previewContainer">
+                                <div class="text-center py-5 text-muted">
+                                    <p class="lead mb-0">Choose a map to preview the exact 25-26 or 26-27 course roadmap and average load.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div id="builderContainer"></div>
                 </div>
             </div>
         </div>
@@ -87,6 +113,7 @@
 
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
+        const auth = getAuth();
         const provider = new GoogleAuthProvider();
 
         window.auth = auth;
@@ -108,6 +135,9 @@
                 userDisplay.textContent = '';
             }
         });
+    </script>
+    <script>
+        window.courseMaps = {{ maps | tojson | safe }};
     </script>
     <script src="/static/app.js"></script>
 </body>
