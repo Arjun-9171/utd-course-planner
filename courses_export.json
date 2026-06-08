@@ -1,0 +1,307 @@
+{
+  "RHET1302": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "ECS2390": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "MATH2413": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "MATH2417": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "PHYS2325": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "PHYS2326": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "GOVT2305": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "MATH2414": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "MATH2419": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "PHYS2125": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "ECS1100": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS1200": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS1436": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS1337": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS2305": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS2336": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS2340": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "MATH2418": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "PHYS2126": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS3162": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS3341": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS3345": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS3354": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS3377": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4141": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4337": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4341": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4347": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4348": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4349": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4384": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4485": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4314": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4315": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4332": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4334": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4336": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4339": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4352": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4361": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4365": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4375": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4376": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4386": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4389": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4390": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4391": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4392": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4393": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4394": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4395": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4396": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4397": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4398": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4399": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "CS4459": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "EE4325": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "SE4351": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "SE4352": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "SE4367": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  },
+  "SE4381": {
+    "title": "",
+    "credits": 0,
+    "prereqs": []
+  }
+}
